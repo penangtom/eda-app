@@ -9,12 +9,12 @@
 	{% else %}
 		{% for user in users %}
 			<div class="user">
-				<a href="{{ urlFor('user.profile', {username: user.username}) }}">
+				<a href="{{ urlFor('user.profile', {user_id: user.id}) }}">
 				{% if user.getFullName() %}
-				 ({{ user.getFullName() }})
+				 {{ user.getFullName() }}
 				{% endif %}
-				{% if user.isAdmin() %}
-					(Admin)
+				{% if user.is_student %}
+					(Student)
 				{% endif %}
 			</div>
 		{% endfor %}
